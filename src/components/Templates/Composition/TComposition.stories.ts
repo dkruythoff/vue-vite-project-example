@@ -17,7 +17,6 @@ const Template: Story<TCompositionProps> = (args) => ({
 export const Default = Template.bind({});
 Default.args = {
   navigationSide: {
-    direction: 'column',
     items: [
       {
         href: '#',

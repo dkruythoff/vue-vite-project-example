@@ -13,7 +13,7 @@ const props = defineProps<TCompositionProps>()
       <ALogo />
     </template>
     <template #nav>
-      <MNavigation v-bind.prop="navigationSide" />
+      <MNavigation v-bind.prop="{ ...navigationSide, direction: 'column' }" />
     </template>
     <template #main>
       <MNavigation v-bind.prop="navigationTop" />
