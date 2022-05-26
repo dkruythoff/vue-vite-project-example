@@ -1,3 +1,6 @@
+const { resolve } = require('path')
+const VueTypeImports = require('vite-plugin-vue-type-imports')
+
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
@@ -15,5 +18,16 @@ module.exports = {
   },
   "features": {
     "storyStoreV7": true
+  },
+  async viteFinal(config) {
+    return { ...config,
+      resolve: {
+        alias: {
+          '@': resolve(__dirname, '..', 'src'),
+          vue: 'vue/dist/vue.esm-bundler.js'
+        }
+      },
+      plugins: [...config.plugins, VueTypeImports.default()]
+    };
   }
 }
